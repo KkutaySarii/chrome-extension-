@@ -1,4 +1,4 @@
- {
+{
      "compilerOptions": {
          "jsx": "react",
          "module": "es6",
