@@ -1,8 +1,15 @@
-chrome.runtime.onInstalled.addListener(function() {
+
+function OnInstalled() {
+    chrome.runtime.onInstalled.addListener(function() {
     console.log("I installed");
-});
+    });
+}
 
-chrome.bookmarks.onCreated.addListener(() => {
-    console.log("I bookmarked");
-})
+function BookMarkedOnCreated() {
+    chrome.bookmarks.onCreated.addListener(() => {
+        console.log("I bookmarked");
+    });
+}
 
+
+export  {OnInstalled, BookMarkedOnCreated};
