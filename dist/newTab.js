@@ -67,7 +67,6 @@ function init() {
         throw new Error("Can not find AppContainer");
     }
     const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(appContainer);
-    console.log(appContainer);
     root.render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.HashRouter, null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tabs__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
 }

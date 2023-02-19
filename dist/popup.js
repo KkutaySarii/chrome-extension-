@@ -46,8 +46,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 const Popup = () => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: "text-4xl text-green-500" }, "Hello World")));
+    const handleInput = (e) => {
+        e.preventDefault();
+        const name = e.target[0].value;
+        chrome.storage.sync.set({ name }, () => {
+            console.log(`Name is set to ${name}`);
+        });
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        chrome.storage.sync.get(["name"], (res) => {
+            console.log(res.name);
+        });
+        return () => { };
+    });
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "h-screen" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { onSubmit: handleInput, className: "flex justify-center items-center py-44" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", name: "name", className: "bg-gray ring-black p-4", placeholder: "Enter a word" }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "py-4 px-3 bg-indigo-500 text-white m-2" }, "Submit"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popup);
 
